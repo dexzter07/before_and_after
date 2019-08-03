@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Color_changing</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Before_and_after.css">
+    </head>
+    <body>
+         <div>
+             <h1>Iron Man</h1>
+        </div>
+        <div class="block">
+
+                <div class="container">
+                        <div class="image"></div>
+                        <div class="image"></div>
+                </div>
+
+        </div>
+        
+        <script>
+            document.querySelectorAll('.container').forEach((element) => {
+                let x, width
+                element.onmouseenter = () => {
+                    const size = element.getBoundingClientRect()
+                    x = size.x
+                    width = size.width
+                }
+
+                element.onmousemove = (e) => {
+                    const horizontal = ((e.clientX - x) / width) * 100
+                    element.style.setProperty('--x',horizontal + '%')
+                }
+            })
+        </script>
+    </body>
+</html>
